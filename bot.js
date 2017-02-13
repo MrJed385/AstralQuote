@@ -107,23 +107,33 @@ client.on('ready', () => {
   console.log('ARE YA READY KIDS? AYE AYE CAPTAIN!');
 });
 
+function messageDeleteTimer(msg, msgArray) {
+  msg.delete(5000);
+}
+
+function messageDeleteTimer20s(msg, msgArray) {
+  msg.delete(20000);
+}
+
 client.on('message', message => {
   if (message.content === '!ping') {
-    message.channel.send('<:vtBoshyTime:280178631886635008> PONG!');
+    message.channel.send('<:vtBoshyTime:280178631886635008> PONG! I want to play pong... :\'(').then(messageDeleteTimer);
+  } else if (message.content === '!pong') {
+    message.channel.send('<:vtBoshyTime:280178631886635008> PING!').then(messageDeleteTimer);
   } else if (message.content === '!isthisthingon') {
-    message.channel.send('no 💤');
+    message.channel.send('no 💤').then(messageDeleteTimer);
   } else if (message.content === '!quoteoftheday') {
     var quoteofday = GetQuoteOfTheDay();
-    message.channel.send("Here's the quote of the day (as of " + QuoteOfTheDayStartTime.toUTCString() + ")");
-    message.channel.sendEmbed(quoteofday);
+    message.channel.send("Here's the quote of the day (as of " + QuoteOfTheDayStartTime.toUTCString() + ")").then(messageDeleteTimer20s);
+    message.channel.sendEmbed(quoteofday).then(messageDeleteTimer20s);
   } else if (message.content === "!forcequote") {
     QuoteOfTheDayExpiry = 0;
     var quoteofday = GetQuoteOfTheDay();
-    message.channel.send("New quote of the day!");
-    message.channel.sendEmbed(quoteofday);
+    message.channel.send("New quote of the day!").then(messageDeleteTimer20s);
+    message.channel.sendEmbed(quoteofday).then(messageDeleteTimer20s);
   } else if (message.content === '!reboot') {
-    message.channel.send("Goodbye! We'll be back in a moment!");
-    console.log('Reboot Requested. Rebooting...');
+    message.channel.send("Goodbye! We'll be back in a moment!").then(messageDeleteTimer);
+    console.log('Reboot Requested. Rebooting...').then(messageDeleteTimer);
     client.destroy();
     DidReboot = true;
     client.login('MjgwMjQ1MDAwMDI0MDk2NzY4.C4K8Nw.InlnQvRmbvfJG0nv13FXtoVzXwc');
@@ -136,7 +146,7 @@ client.on('message', message => {
       message.channel.send("Access Denied");
     }*/
     
-    message.channel.send("Well... vicr123 tried to code this... but it kept crashing... Ironic isn't it? :(");
+    message.channel.send("Well... vicr123 tried to code this... but it kept crashing... Ironic isn't it? :(").then(messageDeleteTimer);
   } else if (message.content === '!help') {
     message.channel.send("Available commands:\n```\n" +
       "!ping            Requests AstralQuote to reply with a message\n" +
@@ -144,7 +154,37 @@ client.on('message', message => {
       "!forcequote      Requests AstralQuote to reset the quote of the day\n" +
       "!reboot          Requests AstralQuote to reboot\n" +
       "!poweroff        Tells AstralQuote to leave\n```"
-    );
+    ).then(messageDeleteTimer20s);
+  } else if (message.content.startsWith("!")) {
+      console.log("[ERROR] " + message.content + " [Unrecognised command]");
+      var msg;
+      switch (Math.floor(Math.random() * 1000) % 8) {
+        case 0:
+          msg = "Trying to break me, are you?";
+          break;
+        case 1:
+          msg = "Sorry, what was that?";
+          break;
+        case 2:
+          msg = "Oops... I missed that.";
+          break;
+        case 3:
+          msg = "Either you typed something wrong... Or I'm not smart enough to understand you.";
+          break;
+        case 4:
+          msg = "What are you trying to do!?";
+          break;
+        case 5:
+          msg = "Is this the end of AstralQuote?";
+          break;
+        case 6:
+          msg = "Not sure what you mean.";
+          break;
+        case 7:
+          msg = "Pretty sure you didn't expect this message to appear...";
+          break;
+      }
+      message.channel.send("<:vtBoshyTime:280178631886635008> GAH! " + msg + " Refer to !help for syntax and other stuff.").then(messageDeleteTimer);
   }
 });
 
