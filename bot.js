@@ -214,6 +214,18 @@ client.on('message', message => {
   }
 });
 
+client.on('guildMemberAdd', usr => {
+  
+  var embed = new Discord.RichEmbed();
+  
+  embed.setAuthor("Victor Tran", "https://yt3.ggpht.com/-Iuf1v4-SSSM/AAAAAAAAAAI/AAAAAAAAAAA/89IYeQw--wU/photo.jpg");
+  embed.setColor("#0096FF");
+  embed.setDescription("Welcome " + usr.displayName + " to AstralPhaser Central! Before you start, we recommend you check the rules over at https://docs.google.com/spreadsheets/d/1Et4DilaZzfnqinxhqOy5Ej_3M_-xznEN21zsuJkGurc/edit?usp=sharing. Thanks, and enjoy the community. - Victor");
+  embed.setURL("https://docs.google.com/spreadsheets/d/1Et4DilaZzfnqinxhqOy5Ej_3M_-xznEN21zsuJkGurc/edit?usp=sharing");
+  
+  usr.sendEmbed(embed)
+});
+
 client.login('MjgwMjQ1MDAwMDI0MDk2NzY4.C4K8Nw.InlnQvRmbvfJG0nv13FXtoVzXwc').catch(
   function() {
     console.log("[ERROR] Login failed.");
