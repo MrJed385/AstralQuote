@@ -25,7 +25,7 @@ function GetQuoteOfTheDay(quoteNum = -1) {
       var url;
       
       if (quoteNum == -1) {
-        quoteNum = Math.floor(Math.random() * 1000) % 8;
+        quoteNum = Math.floor(Math.random() * 1000) % 10;
       }
       
       //New quotes should be kept clean. No expletives or really anything you don't want a 3 year old to see. Thanks :)
@@ -88,6 +88,20 @@ function GetQuoteOfTheDay(quoteNum = -1) {
           year = "1860";
           url = "https://en.wikipedia.org/wiki/Don't_judge_a_book_by_its_cover";
           break;
+        case 8:
+          author = "tostoday";
+          authorImage = "https://yt3.ggpht.com/-gNRclMiHzN4/AAAAAAAAAAI/AAAAAAAAAAA/BNEDEUakd4A/s48-c-k-no-mo-rj-c0xffffff/photo.jpg";
+          quote = "I don't know why but Visopsys sounds like a medical condition﻿";
+          year = "circa. 2015";
+          url = "https://www.youtube.com/watch?v=5T-vEZeY2v0";
+          break;
+        case 9:
+          author = "Diana Adams";
+          authorImage = "https://yt3.ggpht.com/-tQLg1M-3org/AAAAAAAAAAI/AAAAAAAAAAA/-kkOvupMHXQ/s88-c-k-no-mo-rj-c0xffffff/photo.jpg";
+          quote = "4 × 1 000 000!? 4 000 000! It's not that hard...﻿";
+          year = "2014";
+          url = "https://youtu.be/5T-vEZeY2v0?t=9m28s";
+          break;
       }
       
       QuoteOfTheDay.setAuthor(author, authorImage);
@@ -149,13 +163,25 @@ client.on('message', message => {
     message.channel.send("Well... vicr123 tried to code this... but it kept crashing... Ironic isn't it? :(").then(messageDeleteTimer);
   } else if (message.content === '!help') {
     message.channel.send("Available commands:\n```\n" +
-      "!ping            Requests AstralQuote to reply with a message\n" +
+      "!ping, !pong     Requests AstralQuote to reply with a message\n" +
       "!quoteoftheday   Requests AstralQuote for the quote of the day\n" +
       "!forcequote      Requests AstralQuote to reset the quote of the day\n" +
       "!reboot          Requests AstralQuote to reboot\n" +
       "!poweroff        Tells AstralQuote to leave\n```"
     ).then(messageDeleteTimer20s);
+  } else if (message.content === '!easteregg') {
+    message.channel.send("```cpp\n" +
+    "There are no easter eggs to be found here. Begone!" +
+    "\n```").then(messageDeleteTimer20s);
+  } else if (message.content === '!easterwgg') {
+    message.channel.send("```cpp\n" +
+    "Ha, you found an easter egg! Take that, !easteregg!" +
+    "\n```").then(messageDeleteTimer20s);
+  } else if (message.content === '!about') {
+    message.channel.send("Made in Node.js by TheRandomMelon and vicr123. Crafted for the AstralPhaser Central Discord server!").then(messageDeleteTimer20s);
   } else if (message.content.startsWith("!")) {
+      deleteOriginalMessage = false;
+      
       console.log("[ERROR] " + message.content + " [Unrecognised command]");
       var msg;
       switch (Math.floor(Math.random() * 1000) % 8) {
@@ -188,4 +214,7 @@ client.on('message', message => {
   }
 });
 
-client.login('MjgwMjQ1MDAwMDI0MDk2NzY4.C4K8Nw.InlnQvRmbvfJG0nv13FXtoVzXwc');
+client.login('MjgwMjQ1MDAwMDI0MDk2NzY4.C4K8Nw.InlnQvRmbvfJG0nv13FXtoVzXwc').catch(
+  function() {
+    console.log("[ERROR] Login failed.");
+  });
