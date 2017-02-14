@@ -25,7 +25,7 @@ function GetQuoteOfTheDay(quoteNum = -1) {
       var url;
       
       if (quoteNum == -1) {
-        quoteNum = Math.floor(Math.random() * 1000) % 10;
+        quoteNum = Math.floor(Math.random() * 1000) % 11;
       }
       
       //New quotes should be kept clean. No expletives or really anything you don't want a 3 year old to see. Thanks :)
@@ -102,6 +102,13 @@ function GetQuoteOfTheDay(quoteNum = -1) {
           year = "2014";
           url = "https://youtu.be/5T-vEZeY2v0?t=9m28s";
           break;
+        case 10:
+          author = "Victor Tran";
+          authorImage = "https://yt3.ggpht.com/-Iuf1v4-SSSM/AAAAAAAAAAI/AAAAAAAAAAA/89IYeQw--wU/photo.jpg";
+          quote = "Yes! I'm not *just* a blue happy face!﻿";
+          year = "2016";
+          url = "https://youtu.be/2E21oad5pWQ";
+          break;
       }
       
       QuoteOfTheDay.setAuthor(author, authorImage);
@@ -147,7 +154,7 @@ client.on('message', message => {
     message.channel.sendEmbed(quoteofday).then(messageDeleteTimer20s);
   } else if (message.content === '!reboot') {
     message.channel.send("Goodbye! We'll be back in a moment!").then(messageDeleteTimer);
-    console.log('Reboot Requested. Rebooting...').then(messageDeleteTimer);
+    console.log('Reboot Requested. Rebooting...');
     client.destroy();
     DidReboot = true;
     client.login('MjgwMjQ1MDAwMDI0MDk2NzY4.C4K8Nw.InlnQvRmbvfJG0nv13FXtoVzXwc');
