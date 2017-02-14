@@ -153,11 +153,14 @@ client.on('message', message => {
     message.channel.send("New quote of the day!").then(messageDeleteTimer20s);
     message.channel.sendEmbed(quoteofday).then(messageDeleteTimer20s);
   } else if (message.content === '!reboot') {
+      /*
     message.channel.send("Goodbye! We'll be back in a moment!").then(messageDeleteTimer);
     console.log('Reboot Requested. Rebooting...');
     client.destroy();
     DidReboot = true;
     client.login('MjgwMjQ1MDAwMDI0MDk2NzY4.C4K8Nw.InlnQvRmbvfJG0nv13FXtoVzXwc');
+*/
+    message.channel.send("Good try... But we're not letting anyone reboot me yet!").then(messageDeleteTimer);
   } else if (message.content === '!poweroff') {
     /*
     console.log(message.guild.roles);
