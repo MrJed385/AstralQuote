@@ -25,7 +25,7 @@ function GetQuoteOfTheDay(quoteNum = -1) {
       var url;
       
       if (quoteNum == -1) {
-        quoteNum = Math.floor(Math.random() * 1000) % 11;
+        quoteNum = Math.floor(Math.random() * 1000) % 13;
       }
       
       //New quotes should be kept clean. No expletives or really anything you don't want a 3 year old to see. Thanks :)
@@ -109,6 +109,19 @@ function GetQuoteOfTheDay(quoteNum = -1) {
           year = "2016";
           url = "https://youtu.be/2E21oad5pWQ";
           break;
+        case 11:
+          author = "ItsDeckyah";
+          authorImage = "https://yt3.ggpht.com/-t70ZI-25A1k/AAAAAAAAAAI/AAAAAAAAAAA/uGrVakleFIM/s48-c-k-no-mo-rj-c0xffffff/photo.jpg";
+          quote = "Always remember, don't let those who are bullying you ruin your life, they are out to do just that. And that's probably all they'll do their whole lives﻿";
+          year = "2017";
+          url = "https://www.example.com/"; // TODO: Find a URL
+          break;
+        case 12: //Special Case
+          QuoteOfTheDay.setAuthor("William Shakespeare", "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Shakespeare.jpg/468px-Shakespeare.jpg");
+          QuoteOfTheDay.setColor("#FF0000");
+          QuoteOfTheDay.setURL("https://i.imgur.com/4KfdylP.jpg");
+          QuoteOfTheDay.setImage("https://i.imgur.com/4KfdylP.jpg");
+          return QuoteOfTheDay;
       }
       
       QuoteOfTheDay.setAuthor(author, authorImage);
