@@ -25,7 +25,7 @@ function GetQuoteOfTheDay(quoteNum = -1) {
       var url;
       
       if (quoteNum == -1) {
-        quoteNum = Math.floor(Math.random() * 1000) % 13;
+        quoteNum = Math.floor(Math.random() * 1000) % 14;
       }
       
       //New quotes should be kept clean. No expletives or really anything you don't want a 3 year old to see. Thanks :)
@@ -122,6 +122,20 @@ function GetQuoteOfTheDay(quoteNum = -1) {
           QuoteOfTheDay.setURL("https://i.imgur.com/4KfdylP.jpg");
           QuoteOfTheDay.setImage("https://i.imgur.com/4KfdylP.jpg");
           return QuoteOfTheDay;
+        case 13:
+          author = "Mighty_Eagle073";
+          authorImage = "https://yt3.ggpht.com/-Q5IvX3eEGl8/AAAAAAAAAAI/AAAAAAAAAAA/LspLd8v-PR8/s100-c-k-no-mo-rj-c0xffffff/photo.jpg";
+          quote = "Spamming = Damning﻿";
+          year = "2017";
+          url = "https://www.example.com/"; // TODO: Find a URL
+          break;
+        case 14:
+          author = "Nibble";
+          authorImage = "https://yt3.ggpht.com/-SUPNlJ8a7qA/AAAAAAAAAAI/AAAAAAAAAAA/R_I4z7057_w/s100-c-k-no-mo-rj-c0xffffff/photo.jpg";
+          quote = "AUTO CORRECF!!!";
+          year = "2017";
+          url = "https://www.example.com/"; // TODO: Find a URL
+          break;
       }
       
       QuoteOfTheDay.setAuthor(author, authorImage);
