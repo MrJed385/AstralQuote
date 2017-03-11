@@ -25,7 +25,7 @@ function GetQuoteOfTheDay(quoteNum = -1) {
       var url;
       
       if (quoteNum == -1) {
-        quoteNum = Math.floor(Math.random() * 1000) % 14;
+        quoteNum = Math.floor(Math.random() * 1000) % 16;
       }
       
       //New quotes should be kept clean. No expletives or really anything you don't want a 3 year old to see. Thanks :)
@@ -133,6 +133,13 @@ function GetQuoteOfTheDay(quoteNum = -1) {
           author = "Nibble";
           authorImage = "https://yt3.ggpht.com/-SUPNlJ8a7qA/AAAAAAAAAAI/AAAAAAAAAAA/R_I4z7057_w/s100-c-k-no-mo-rj-c0xffffff/photo.jpg";
           quote = "AUTO CORRECF!!!";
+          year = "2017";
+          url = "https://www.example.com/"; // TODO: Find a URL
+          break;
+        case 15:
+          author = "143malliw";
+          authorImage = "https://yt3.ggpht.com/-SUPNlJ8a7qA/AAAAAAAAAAI/AAAAAAAAAAA/R_I4z7057_w/s100-c-k-no-mo-rj-c0xffffff/photo.jpg";
+          quote = "but i can't write a quote, for I am the quote";
           year = "2017";
           url = "https://www.example.com/"; // TODO: Find a URL
           break;
@@ -263,7 +270,7 @@ client.on('guildMemberAdd', usr => {
   usr.sendEmbed(embed)
 });
 
-client.login('MjgwMjQ1MDAwMDI0MDk2NzY4.C4K8Nw.InlnQvRmbvfJG0nv13FXtoVzXwc').catch(
+client.login('Mjg4MTk3ODMyNDA4NTYzNzEy.C56UzA.71D7w5VDwq7HU2MmB9Gesm5pn0Y').catch(
   function() {
     console.log("[ERROR] Login failed.");
   });
