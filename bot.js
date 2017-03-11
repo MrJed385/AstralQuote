@@ -34,11 +34,14 @@ function GetQuoteOfTheDay(quoteNum = -1) {
       
         
       if(GuildId === "234414439330349056") {
-          var quotejson = httpGet("http://getshiftos.ml/api.php?q=quote_get");
-          var parsedJson = JSON.parse(quotejson);
-          author = parsedJson.Author;
-          quote = parsedJson.Quote;
-          year = parsedJson.Year;
+          switch(quoteNum)
+          {
+              case 0:
+                  author = "Michael VanOverbeek";
+                  quote = "Holy shit this actually works?";
+                  year = "2017";
+                  break;
+          }
       }
       else {
           switch (quoteNum) {
